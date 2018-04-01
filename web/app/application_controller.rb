@@ -2,8 +2,7 @@ require 'sinatra'
 require 'sinatra/cross_origin'
 require_relative './equation'
 
-class Application < Sinatra::Base
-  include Equation
+class ApplicationController < Sinatra::Base
 
   configure do
     enable :cross_origin
@@ -14,19 +13,19 @@ class Application < Sinatra::Base
   end
 
   post '/equation' do
-    Equation.parse(request.params['strokes'])
-  rescue InvalidPathDataError
-    "There was an error with the data provided"
+    { data: { equation: Equation.parse(request.params['strokes']) }}.to_json
+  rescue Equation::InvalidPathDataError
+    render_error(message: "There was an error with the data provided")
+  rescue Exception => e
+    render_error(message: e.message)
   end
 
   not_found do
-    content_type :json
-    { error: { code: 404, message: "Not Found" } }.to_json
+    render_error(code: 404, message: "Not Found")
   end
 
   error do
-    content_type :json
-    { error: { code: 400, message: "your request was not valid" } }.to_json
+    render_error
   end
 
   options "*" do
@@ -34,5 +33,11 @@ class Application < Sinatra::Base
     response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type, Accept, X-User-Email, X-Auth-Token"
     response.headers["Access-Control-Allow-Origin"] = "*"
     200
+  end
+
+  def render_error(code: 400, message: "Your request was not vali")
+    status(code)
+    content_type :json
+    { error: { code: code, message: message } }.to_json
   end
 end

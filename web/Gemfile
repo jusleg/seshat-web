@@ -3,8 +3,9 @@ ruby "2.5.0"
 
 gem 'sinatra'
 gem 'sinatra-cross_origin'
+gem 'sinatra-contrib'
 gem 'rake'
 gem 'minitest'
+gem 'mocha'
 gem 'rack-test'
 gem 'json'
-gem 'pry'
