@@ -7,7 +7,7 @@ before_install:
   - "gem install bundler"
 
 install:
-  - bundle install
+  - cd web; bundle install
 
 script:
-- bundle exec rake
+- cd web; bundle exec rake
