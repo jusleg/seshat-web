@@ -2,7 +2,7 @@ require 'tempfile'
 
 module Equation
   def self.parse(sgcink_data)
-    raise InvalidPathDataError unless sgcink_data.match?(/^SCG_INK(\n\d+(\s\d+)?)*$/)
+    raise InvalidPathDataError unless sgcink_data.to_s.match?(/^SCG_INK(\n\d+(\s\d+)?)*$/)
     output = seshat_file(sgcink_data)
     raise SeshatError, output if output.match?(/Error/i)
     output
