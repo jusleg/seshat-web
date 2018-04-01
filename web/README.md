@@ -1,14 +1,14 @@
-# Installation
+### Installation
 ```
 bundle install
 ```
 
-# Running
+### Running
 ```
 rackup
 ```
 
-# Testing
+### Testing
 ```
 bundle exec rake
 ```
