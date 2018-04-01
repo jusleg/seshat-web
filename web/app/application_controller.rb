@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/cross_origin'
 require_relative './equation'
+require 'dotenv/load'
 
 class ApplicationController < Sinatra::Base
 

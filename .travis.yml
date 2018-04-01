@@ -5,9 +5,14 @@ rvm:
 before_install:
   - "gem update --system"
   - "gem install bundler"
+  - sudo apt-get -qq update
+  - sudo apt-get install libboost-all-dev
+  - sudo apt-get install libxerces-c3.1 libxerces-c-dev
+  - echo "SESHAT_PATH=/home/travis/build/jusleg/seshat-web/seshat" > 'web/.env'
 
 install:
-  - cd web; bundle install
+  - cd seshat; make
+  - cd ../web; bundle install
 
 script:
 - cd web; bundle exec rake

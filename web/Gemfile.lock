@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     backports (3.11.1)
+    dotenv (2.2.1)
     json (2.1.0)
     metaclass (0.0.4)
     minitest (5.11.3)
@@ -34,6 +35,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   json
   minitest
   mocha
