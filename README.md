@@ -1,6 +1,8 @@
 # seshat-web
 Implementing [seshat](https://github.com/falvaro/seshat) with a web api to parse handwritten mathematical equations.
 
+[![codebeat badge](https://codebeat.co/badges/89221ca6-ae12-4acf-a4c5-a967f2f8a77e)](https://codebeat.co/projects/github-com-jusleg-seshat-web-master)
+
 ## Introduction
 From [falvaro/seshat](https://github.com/falvaro/seshat):
 
