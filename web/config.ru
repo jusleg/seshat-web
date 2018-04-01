@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-require './app/app'
+require './app/application_controller'
 
-run Application
+run ApplicationController
