@@ -1,7 +1,9 @@
 # seshat-web
 Implementing [seshat](https://github.com/falvaro/seshat) with a web api to parse handwritten mathematical equations.
 
-[![Dependency Status](https://gemnasium.com/badges/github.com/jusleg/seshat-web.svg)](https://gemnasium.com/github.com/jusleg/seshat-web) [![codebeat badge](https://codebeat.co/badges/89221ca6-ae12-4acf-a4c5-a967f2f8a77e)](https://codebeat.co/projects/github-com-jusleg-seshat-web-master)
+[![Build Status](https://travis-ci.org/jusleg/seshat-web.svg?branch=master)](https://travis-ci.org/jusleg/seshat-web) [![codebeat badge](https://codebeat.co/badges/89221ca6-ae12-4acf-a4c5-a967f2f8a77e)](https://codebeat.co/projects/github-com-jusleg-seshat-web-master) [![Dependency Status](https://gemnasium.com/badges/github.com/jusleg/seshat-web.svg)](https://gemnasium.com/github.com/jusleg/seshat-web) [![Maintainability](https://api.codeclimate.com/v1/badges/8a958baf7fd286770d40/maintainability)](https://codeclimate.com/github/jusleg/seshat-web/maintainability)
+
+the web server is in [`/web`](https://github.com/jusleg/seshat-web/tree/master/web) and the seshat program is in [`/seshat`](https://github.com/jusleg/seshat-web/tree/master/seshat)
 
 ## Introduction
 From [falvaro/seshat](https://github.com/falvaro/seshat):
@@ -59,7 +61,29 @@ sudo apt-get install libxercesXXX libxercesXXX-dev
 # eg. sudo apt-get install libxerces-c3.1 libxerces-c-dev
 ```
 
-4. Make the project
+4. Make the project + bundle
 ```
-cd seshat; make
+cd seshat; make; cd ../web; bundle install
+```
+
+## Run the Server
+```
+rackup
+```
+
+this will start a sinatra server. You need yo do a POST request to the `/equation` endpoint. The request should have a parameter named `strokes` and the value should be the content of the .scgink file as a string.
+
+## Sample Request/Responses
+```
+# Valid request
+{"strokes": "SCG_INK\n2\n2\n270 1372\n466 1549\n2\n437 1393\n261 1546\n"}
+
+# Valid response
+{ "data": { "equation": "x"} }
+
+# Invalid request
+{"strokes": "jhgf"}
+
+# Response
+{ "error" { "code": 400, "message": "Error: input file format is not SCG_INK" } }
 ```
