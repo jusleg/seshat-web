@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/cross_origin'
 require_relative './equation'
+require 'dotenv/load'
 
 class ApplicationController < Sinatra::Base
 
@@ -35,7 +36,7 @@ class ApplicationController < Sinatra::Base
     200
   end
 
-  def render_error(code: 400, message: "Your request was not vali")
+  def render_error(code: 400, message: "Your request was not valid")
     status(code)
     content_type :json
     { error: { code: code, message: message } }.to_json

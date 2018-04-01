@@ -12,10 +12,10 @@ module Equation
     file = Tempfile.new(['equation', '.scgink'])
     file.write(data)
     file.rewind
-    Dir.chdir("/var/seshat-web/seshat")
+    Dir.chdir(ENV['SESHAT_PATH'])
     result = `./seshat -c Config/CONFIG -i #{file.path} | tail -n 1`
     file.unlink
-    result
+    result.strip
   end
 
   class InvalidPathDataError < StandardError; end

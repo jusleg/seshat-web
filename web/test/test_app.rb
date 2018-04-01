@@ -38,4 +38,9 @@ class RouteTest < MiniTest::Test
     assert_equal 400, last_response.status
     assert_equal 'Error: this is a test', JSON.parse(last_response.body)['error']['message']
   end
+
+  def test_seshat_full_integration_test
+    post '/equation', {"strokes": "SCG_INK\n2\n2\n270 1372\n466 1549\n2\n437 1393\n261 1546\n"}
+    assert_equal 'x', JSON.parse(last_response.body)['data']['equation']
+  end
 end
