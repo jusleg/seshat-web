@@ -1,7 +1,7 @@
 # seshat-web
 Implementing [seshat](https://github.com/falvaro/seshat) with a web api to parse handwritten mathematical equations.
 
-[![Dependency Status](https://gemnasium.com/badges/github.com/jusleg/seshat-web.svg)](https://gemnasium.com/github.com/jusleg/seshat-web) [![codebeat badge](https://codebeat.co/badges/89221ca6-ae12-4acf-a4c5-a967f2f8a77e)](https://codebeat.co/projects/github-com-jusleg-seshat-web-master)
+[![Build Status](https://travis-ci.org/jusleg/seshat-web.svg?branch=master)](https://travis-ci.org/jusleg/seshat-web) [![codebeat badge](https://codebeat.co/badges/89221ca6-ae12-4acf-a4c5-a967f2f8a77e)](https://codebeat.co/projects/github-com-jusleg-seshat-web-master) [![Dependency Status](https://gemnasium.com/badges/github.com/jusleg/seshat-web.svg)](https://gemnasium.com/github.com/jusleg/seshat-web) [![Maintainability](https://api.codeclimate.com/v1/badges/8a958baf7fd286770d40/maintainability)](https://codeclimate.com/github/jusleg/seshat-web/maintainability)
 
 ## Introduction
 From [falvaro/seshat](https://github.com/falvaro/seshat):
