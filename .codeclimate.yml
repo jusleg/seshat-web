@@ -1,0 +1,5 @@
+plugins:
+  brakeman:
+    enabled: true
+    config:
+        app_path: web/
